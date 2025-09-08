@@ -80,8 +80,8 @@ dotnet build -c Release
 
 Run the executable from a command line and provide three arguments:
 
-```text
-disk-spy.exe <deviceIdToMatch> <localBaseDirectory> <folderNameOnDrive>
+```bash
+disk-spy [deviceIdToMatch] [localBaseDirectory] [folderNameOnDrive]
 ```
 
 * `deviceIdToMatch` — the device ID (GUID) to compare against the inserted volume. Example format (without braces): `12345678-90AB-CDEF-1234-567890ABCDEF`.
@@ -92,7 +92,7 @@ disk-spy.exe <deviceIdToMatch> <localBaseDirectory> <folderNameOnDrive>
 
 * Push a folder to a known device when it is inserted:
 
-```text
+```bash
 disk-spy.exe 12345678-90AB-CDEF-1234-567890ABCDEF C:\MyBackup DataToCopy
 ```
 
@@ -100,8 +100,8 @@ If a drive with `DeviceId` `12345678-90AB-CDEF-1234-567890ABCDEF` is inserted an
 
 * Pull contents of any other inserted drive into a local archive directory:
 
-```text
-disk-spy.exe 12345678-90AB-CDEF-1234-567890ABCDEF C:\UsbArchives DataToCopy
+```bash
+disk-spy 12345678-90AB-CDEF-1234-567890ABCDEF C:\UsbArchives DataToCopy
 ```
 
 If a drive with a different DeviceId is inserted and mounted as `F:\`, the app copies `F:\` → `C:\UsbArchives\<deviceId>\`.
@@ -146,7 +146,7 @@ Feel free to open issues or pull requests to:
 
 ## License
 
-This repository does not include a license by default. Add a suitable open-source license (e.g. MIT) if you plan to publish.
+[![license](https://img.shields.io/github/license/rbxluau/disk-spy)](https://github.com/rbxluau/disk-spy/blob/main/LICENSE)
 
 ---
 
