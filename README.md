@@ -118,7 +118,6 @@ If a drive with a different DeviceId is inserted and mounted as `F:\`, the app c
 
 ## Limitations & To-Do / Improvements
 
-* No conflict handling: the code will call `File.CopyTo` without overwrite options; existing files with the same name will cause exceptions. Consider using `file.CopyTo(target, overwrite: true)` or adding more robust conflict resolution.
 * No logging: add structured logging to track what was copied, errors, timestamps, etc.
 * No file filters: add white/black lists, file size limits, or file type filters to avoid copying large or unwanted files.
 * No concurrency control: copying large trees is synchronous and may block the event loop. Consider copying in a background worker and reporting progress.
