@@ -93,7 +93,7 @@ disk-spy [deviceIdToMatch] [localBaseDirectory] [folderNameOnDrive]
 * Push a folder to a known device when it is inserted:
 
 ```bash
-disk-spy.exe 12345678-90AB-CDEF-1234-567890ABCDEF C:\MyBackup DataToCopy
+disk-spy 12345678-90AB-CDEF-1234-567890ABCDEF C:\MyBackup DataToCopy
 ```
 
 If a drive with `DeviceId` `12345678-90AB-CDEF-1234-567890ABCDEF` is inserted and mounted as `E:\`, the app copies `C:\MyBackup` → `E:\DataToCopy`.
