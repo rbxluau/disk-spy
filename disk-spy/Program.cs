@@ -4,18 +4,24 @@ var watcher = new ManagementEventWatcher(
     new WqlEventQuery("SELECT * FROM Win32_VolumeChangeEvent WHERE EventType = 2"));
 watcher.EventArrived += async (sender, e) =>
 {
-    var deviceId = e.NewEvent.Properties["DeviceId"]?.Value?.ToString();
+    var deviceId = string.Empty;
     var driveName = e.NewEvent.Properties["DriveName"]?.Value?.ToString();
-    if (string.IsNullOrEmpty(deviceId))
+    if (string.IsNullOrEmpty(driveName))
     {
-        Console.WriteLine("DeviceId is null or empty.");
+        Console.WriteLine("DriveName is null or empty.");
         return;
     }
     else
     {
+        var searcher = new ManagementObjectSearcher(
+            $"SELECT DeviceID FROM Win32_Volume WHERE DriveLetter = '{driveName}'");
+        foreach (var volume in searcher.Get())
+        {
+            deviceId = volume["DeviceID"]?.ToString();
+        }
+        if (string.IsNullOrEmpty(deviceId)) return;
         deviceId = deviceId.Split('{', '}')[1];
     }
-    if (string.IsNullOrEmpty(driveName)) return;
     try
     {
         if (deviceId == args[0])
