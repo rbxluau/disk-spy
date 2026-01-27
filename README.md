@@ -33,8 +33,8 @@ This behavior allows you to either push a directory to a known device or pull co
 ## Requirements
 
 * Windows 10 / Windows 11 (or other modern Windows desktop OS that supports WMI).
-* .NET 8.0 SDK installed.
-* The `System.Management` assembly/package available. On .NET 6+ (including .NET 8.0) you need to add the NuGet package `System.Management`.
+* .NET 10.0 SDK installed.
+* The `System.Management` assembly/package available. On .NET 6+ (including .NET 10.0) you need to add the NuGet package `System.Management`.
 * File system permissions to read from and write to involved directories and drives.
 
 ---
@@ -54,7 +54,7 @@ cd disk-spy
 dotnet add package System.Management
 ```
 
-3. Update your project file to target Windows with .NET 8.0:
+3. Update your project file to target Windows with .NET 10.0:
 
 ```xml
 <!-- Example in your .csproj -->
